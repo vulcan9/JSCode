@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+		<title>drag</title>
+
+		<!--<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />-->
+		<link rel="stylesheet" href="./jquery-ui.css" />
+		<style>
+			body {
+				font-family: "Trebuchet MS", "Helvetica", "Arial", "Verdana", "sans-serif";
+				font-size: 62.5%;
+			}
+
+			#container {
+				width: 300px;
+				height: 300px;
+				padding: 0em;
+			}
+  #selectable .ui-selecting { background: #FECA40; }
+  #selectable .ui-selected { background: #F39814; color: white; }
+  #selectable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+  #selectable p { margin: 3px; padding: 0.4em; font-size: 1.4em; height: 18px; }
+		</style>
+
+		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		<script>
+			// Drag
+			// http://jqueryui.com/draggable/
+			$(function()
+			{
+				$("#container").draggable();
+				$("#container").resizable({
+					handles : "all"
+				});
+				//$( "#selectable" ).selectable();
+
+					$("#selectable").selectable({
+						filter: "p",
+						stop : function()
+						{
+							var result = $("#select-result").empty();
+							$(".ui-selected", this).each(function(event, ui)
+							{
+								//var index = $("#selectable li").index(this);
+								result.append("<br> #" + $(ui).id);
+								
+								var left = $(ui).css("left");
+								var right = $(ui).css("right");
+								var top = $(ui).css("top");
+								var bottom = $(ui).css("bottom");
+								
+								result.append("<br>* left : " + left);
+								result.append("<br>* right : " + right);
+								result.append("<br>* top : " + top);
+								result.append("<br>* bottom : " + bottom);
+							});
+						}
+					});
+					});
+		</script>
+
+	</head>
+
+	<body>
+
+		<div id="container" class="ui-state-active">
+			<p id="feedback">
+				<span>You've selected:</span> <span id="select-result">none</span>.
+			</p>
+		</div>
+		
+			<div id="selectable" >
+				<p id="text01">일반 텍스트 노드 : </p>
+				<p id="text02">텍스트를 선택하면 </p>
+				<p id="text03">드래그 및 리사이징 영역이 표시되고 </p>
+				<p id="text04">해당 기능이 부여된다.</p>
+				<p id="text05">다중 선택은 드래그에 의해서 선택될 있고 </p>
+				<p id="text06">이때 리사이징 기능은 되지않고</p>
+				<p id="text07">앵커는 표시되지 앟는다.</p>
+				<p id="text08">(드래그를 위해 영역 표시만 된다.)</p>
+				<p id="text09">selectable은 직속 child Element에 대해서만 작동한다. (같은 뎁스의 태그에 대해서만 작동됨)</p>
+			</div>
+	</body>
+</html>
