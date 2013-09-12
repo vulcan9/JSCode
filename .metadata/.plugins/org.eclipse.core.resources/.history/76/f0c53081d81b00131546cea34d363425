@@ -126,9 +126,8 @@ pdf2htmlEX.defaultViewer = new pdf2htmlEX.Viewer({
 					});
 				}
 				
-				// 수정된내용 저장하기
 				$("#saveButton").click(function(){
-					console.log($("html").html());
+					console.log("sdfsdfgwr");
 				});
 			});
 	</script>

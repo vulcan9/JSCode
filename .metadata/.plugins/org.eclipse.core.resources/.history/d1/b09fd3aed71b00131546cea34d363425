@@ -125,11 +125,6 @@ pdf2htmlEX.defaultViewer = new pdf2htmlEX.Viewer({
 						}
 					});
 				}
-				
-				// 수정된내용 저장하기
-				$("#saveButton").click(function(){
-					console.log($("html").html());
-				});
 			});
 	</script>
 
@@ -208,7 +203,7 @@ pdf2htmlEX.defaultViewer = new pdf2htmlEX.Viewer({
 	
 </div>
 <div style="position: absolute">
-	<input type="button" id="saveButton" style="width: 200px;height: 50px"/>
+	<input type="button" id="select-result" style="width: 200px;height: 50px"/>
 </div>
 </body>
 </html>

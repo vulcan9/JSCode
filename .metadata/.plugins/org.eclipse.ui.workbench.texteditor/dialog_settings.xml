@@ -2,16 +2,19 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="casesensitive"/>
 		<item value="false" key="isRegEx"/>
+		<item value="false" key="casesensitive"/>
 		<item value="false" key="wholeword"/>
-		<item value="outline" key="selection"/>
+		<item value="elect-result" key="selection"/>
 		<list key="findhistory">
+			<item value="elect-result"/>
+			<item value="z-index"/>
+			<item value="page-container"/>
+			<item value="page-container&quot;"/>
+			<item value="select-result"/>
 			<item value="outline"/>
 			<item value="ui-state-active"/>
 			<item value="ui-widget-header"/>
-			<item value="ui-widget-content"/>
-			<item value="&lt;!DOCTYPE html&gt;&#x0A;&lt;html lang=&quot;en&quot;&gt;&#x0A;&lt;head&gt;&#x0A;  &lt;meta charset=&quot;utf-8&quot; /&gt;&#x0A;&#x0A;  &lt;!-- Always force latest IE rendering engine (even in intranet) &amp; Chrome Frame &#x0A;       Remove this if you use the .htaccess --&gt;&#x0A;  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot; /&gt;&#x0A;&#x0A;  &lt;title&gt;drag&lt;/title&gt;&#x0A;&#x09;&#x0A;&#x09;&lt;script src=&quot;http://code.jquery.com/ui/1.10.3/jquery-ui.js&quot;&gt;&lt;/script&gt;&#x0A;  &lt;script&gt;&#x0A;  $(function() {&#x0A;    $( &quot;#draggable&quot; ).draggable();&#x0A;  });&#x0A;  &lt;/script&gt;&#x0A;  &#x0A;&lt;/head&gt;&#x0A;&#x0A;&lt;body&gt;&#x0A;&#x0A;&lt;div id=&quot;draggable&quot; class=&quot;ui-widget-content&quot;&gt;&#x0A;  &lt;p&gt;Drag me around&lt;/p&gt;&#x0A;&lt;/div&gt;&#x0A;&#x0A;&lt;/body&gt;&#x0A;&lt;/html&gt;&#x0A;"/>
 		</list>
 	</section>
 </section>

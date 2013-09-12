@@ -44,7 +44,7 @@ pdf2htmlEX.defaultViewer = new pdf2htmlEX.Viewer({
 			*/
 			
 			position: absolute;
-			/*z-index: 0;*/
+			z-index: 0;
 		}
 		
 		
@@ -82,54 +82,67 @@ pdf2htmlEX.defaultViewer = new pdf2htmlEX.Viewer({
 					function (e, ui){
 						var element = $(ui);
 						element.css("border", "1px solid #0000FF");
-						// 드래그 기능
-						drag(element);
 					}
 				);
 				
-				function drag(element)
-				{
-					//console.log($(element).attr("id"));
-						
-					// 스케일 적용된 drag 기능 참고
-					// http://stackoverflow.com/questions/1061099/how-to-let-resize-vertically-a-div-with-only-jquery-no-plugins
-					// http://gungfoo.wordpress.com/2013/02/15/jquery-ui-resizabledraggable-with-transform-scale-set/
-					
-					element.draggable({
-						//handle: '.drag-handle',
-						cursor:"move",
-						containment:"parent",
-						scroll:false,
-						
-						start: function(event, ui)
-						{
-							ui.position.left = 0;
-							ui.position.top = 0;
-						},
-						drag: function(event, ui)
-						{
-							// TODO : Limit 체크 로직 추가
-							
-							// find change in left
-							var changeLeft = ui.position.left - ui.originalPosition.left;
-							// adjust new left by our zoomScale
-							var newLeft = ui.originalPosition.left + changeLeft / scaleFactor;
-							
-							// find change in top
-							var changeTop = ui.position.top - ui.originalPosition.top;
-							// adjust new top by our zoomScale
-							var newTop = ui.originalPosition.top + changeTop / scaleFactor;
 				
-							ui.position.left = newLeft;
-							ui.position.top = newTop;
-						}
-					});
-				}
 				
-				// 수정된내용 저장하기
-				$("#saveButton").click(function(){
-					console.log($("html").html());
+				// 선택 기능
+				$("#selectable").selectable({
+					filter: "div",
+					stop : function()
+					{
+						var result = $("#select-result").empty();
+						$(".ui-selected", this).each(
+							function(event, ui)
+							{
+								var element = $(ui);
+								//console.log($(element).attr("id"));
+								
+								// 스케일 적용된 drag 기능 참고
+								// http://stackoverflow.com/questions/1061099/how-to-let-resize-vertically-a-div-with-only-jquery-no-plugins
+								// http://gungfoo.wordpress.com/2013/02/15/jquery-ui-resizabledraggable-with-transform-scale-set/
+								
+								element.draggable({
+									//handle: '.drag-handle',
+									cursor:"move",
+									containment:"parent",
+									scroll:false,
+									
+									start: function(event, ui)
+									{
+										ui.position.left = 0;
+										ui.position.top = 0;
+									},
+									drag: function(event, ui)
+									{
+										// TODO : Limit 체크 로직 추가
+										
+										// find change in left
+										var changeLeft = ui.position.left - ui.originalPosition.left;
+										// adjust new left by our zoomScale
+										var newLeft = ui.originalPosition.left + changeLeft / scaleFactor;
+										
+										// find change in top
+										var changeTop = ui.position.top - ui.originalPosition.top;
+										// adjust new top by our zoomScale
+										var newTop = ui.originalPosition.top + changeTop / scaleFactor;
+							
+										ui.position.left = newLeft;
+										ui.position.top = newTop;
+									}
+								});
+								
+								// tag.resizable({
+									// handles : "all"
+								// });
+								
+								//tag.css("border", "1px solid #FF0000");
+							}
+						);
+					}
 				});
+				
 			});
 	</script>
 
@@ -205,10 +218,7 @@ pdf2htmlEX.defaultViewer = new pdf2htmlEX.Viewer({
 			<div class="pi" data-data='{"ctm":[4.000000,0.000000,0.000000,4.000000,0.000000,0.000000]}'></div>
 		</div>
 	</div>
-	
 </div>
-<div style="position: absolute">
-	<input type="button" id="saveButton" style="width: 200px;height: 50px"/>
-</div>
+<div id="select-result" style="z-index: 3; width: 200;height: 50">sdgvrsg</div>
 </body>
 </html>

@@ -44,7 +44,7 @@ pdf2htmlEX.defaultViewer = new pdf2htmlEX.Viewer({
 			*/
 			
 			position: absolute;
-			/*z-index: 0;*/
+			z-index: 1;
 		}
 		
 		
@@ -82,10 +82,25 @@ pdf2htmlEX.defaultViewer = new pdf2htmlEX.Viewer({
 					function (e, ui){
 						var element = $(ui);
 						element.css("border", "1px solid #0000FF");
-						// 드래그 기능
 						drag(element);
 					}
 				);
+				
+				
+				/*
+				// 선택 기능
+				$("#selectable").selectable({
+					filter: "div",
+					stop : function(event, ui)
+					{
+						// TODO : 이전 선택 객체의 drag 기능 해지
+						
+						//var result = $("#select-result").empty();
+						
+						console.log(ui);
+					}
+				});
+				*/
 				
 				function drag(element)
 				{
@@ -126,10 +141,23 @@ pdf2htmlEX.defaultViewer = new pdf2htmlEX.Viewer({
 					});
 				}
 				
-				// 수정된내용 저장하기
-				$("#saveButton").click(function(){
-					console.log($("html").html());
-				});
+				/*
+				$(".ui-selected", this).each(
+					function(event, ui)
+					{
+						var element = $(ui);
+						
+						
+						// tag.resizable({
+							// handles : "all"
+						// });
+						
+						//tag.css("border", "1px solid #FF0000");
+					}
+				);
+				*/
+			
+				
 			});
 	</script>
 
@@ -207,8 +235,6 @@ pdf2htmlEX.defaultViewer = new pdf2htmlEX.Viewer({
 	</div>
 	
 </div>
-<div style="position: absolute">
-	<input type="button" id="saveButton" style="width: 200px;height: 50px"/>
-</div>
+<input type="button" id="select-result" style="z-index:2; width: 200px;height: 50px">sdgvrsg</input>
 </body>
 </html>
