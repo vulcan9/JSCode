@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<title>Demo of Scalable Arch using Choona.js: BlogReader</title>
+		<meta charset="utf-8">
+		<meta name="description" content="Demo of Scalable Arch using Choona.js">
+		<link rel="STYLESHEET" href="./index.css" type="text/css">
+
+	</head>
+	<body>
+		<div id="applicationContainer"></div>
+
+		<script type="text/javascript" src="./jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="./choona.js"></script>
+
+		<script type="text/javascript" src="./myApp.js"></script>
+
+		<script type="text/javascript">
+			choona.startApp({
+				id : "applicationContainer",
+				module : myApp.application
+			});
+
+		</script>
+	</body>
+</html>
